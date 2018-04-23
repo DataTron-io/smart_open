@@ -8,6 +8,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 env/
+venv/
 build/
 develop-eggs/
 dist/
@@ -56,3 +57,6 @@ target/
 # vim
 *.swp
 *.swo
+
+.eggs/
+.idea/
