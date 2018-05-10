@@ -15,6 +15,7 @@ def copy_file(src, dest, close_src=True, close_dest=True, make_path=False):
     :param close_dest: boolean (optional). if  True, dest file is closed after use.
     :param make_path: str (optional, default False). if True, destination parent directories are created if missing.
     """
+    logging.info("Copy file from {} to {}".format(src, dest))
     if make_path:
         dir_path, _ = os.path.split(dest)
         if not os.path.isdir(dir_path):
@@ -24,6 +25,7 @@ def copy_file(src, dest, close_src=True, close_dest=True, make_path=False):
     out_file = smart_open(dest, 'wb')
 
     shutil.copyfileobj(in_file, out_file)
+    out_file.flush()
 
     if in_file and not in_file.closed and close_src:
         in_file.close()
